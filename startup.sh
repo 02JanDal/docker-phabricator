@@ -26,4 +26,7 @@ chmod 666 /opt/phabricator/conf/local/local.json
 chown -R mysql:mysql /var/lib/docker
 
 cd /opt/phabricator && ./bin/storage upgrade --force
-cd /opt/phabricator && ./bin/phd restart
+service ssh restart
+/usr/sbin/sshd -f /etc/ssh/sshd_config.phabricator
+chown -R daemon-user /var/repo
+cd /opt/phabricator && sudo -u daemon-user ./bin/phd restart

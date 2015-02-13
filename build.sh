@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build --no-cache -t yesnault/phabricator .
+docker build -t 02jandal/docker-phabricator .
